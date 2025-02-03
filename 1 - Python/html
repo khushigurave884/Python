@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fertilizer Application</title>
+</head>
+<body>
+  <h1>Fertilizer Application</h1>
+
+  <p>Select the crop type:</p>
+
+  <select name="crop_type">
+    <option value="corn">Corn</option>
+    <option value="potatoes">Potatoes</option>
+    <option value="wheat">Wheat</option>
+  </select>
+
+  <p>Click the button to see the required fertilizer:</p>
+
+  <button type="submit">Submit</button>
+
+  <p>The required fertilizer is: <span id="fertilizer"></span></p>
+
+  <script>
+    function getFertilizer() {
+      var cropType = document.querySelector('select[name="crop_type"]').value;
+      var fertilizer;
+
+      switch (cropType) {
+        case "corn":
+          fertilizer = "nitrogen fertilizer";
+          break;
+        case "potatoes":
+          fertilizer = "phosphorus fertilizer";
+          break;
+        case "wheat":
+          fertilizer = "potassium fertilizer";
+          break;
+        default:
+          fertilizer = "unknown fertilizer";
+      }
+
+      document.querySelector('#fertilizer').innerHTML = fertilizer;
+    }
+
+    document.querySelector('button[type="submit"]').addEventListener('click', getFertilizer);
+  </script>
+</body>
+</html>
